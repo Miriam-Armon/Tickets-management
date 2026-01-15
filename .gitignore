@@ -1,0 +1,13 @@
+# Angular / Node
+client/node_modules/
+client/dist/
+client/.env
+
+# .NET Server
+server/bin/
+server/obj/
+server/*.user
+server/*.vs
+
+*.log
+*.tmp
