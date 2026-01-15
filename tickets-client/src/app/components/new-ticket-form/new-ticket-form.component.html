@@ -1,0 +1,34 @@
+<div class="ticket-form card">
+  <button class="close-btn" (click)="close()">✕</button>
+  <h2 class="form-title">{{ constants.title }}</h2>
+  <form #form="ngForm" (ngSubmit)="submitTicket()">
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <label class="field">
+      <span class="label">{{ constants.labels.subject }}</span>
+      <input name="subject" type="text" [placeholder]="constants.placeholders.subject" [(ngModel)]="subject" #subjectModel="ngModel" required />
+      <div class="error-text" *ngIf="subjectModel.invalid && (subjectModel.touched || subjectModel.dirty)">
+        {{ constants.validation.subjectRequired }}
+      </div>
+    </label>
+
+    <label class="field">
+      <span class="label">{{ constants.labels.description }}</span>
+      <textarea name="description" [placeholder]="constants.placeholders.description" [(ngModel)]="description"></textarea>
+    </label>
+
+    <label class="field">
+      <span class="label">{{ constants.labels.userId }}</span>
+      <input name="userId" type="text" [placeholder]="constants.placeholders.userId" [(ngModel)]="userId" #userIdModel="ngModel" required pattern="^[0-9]{9}$" inputmode="numeric" maxlength="9" />
+      <div class="error-text" *ngIf="userIdModel.invalid && (userIdModel.touched || userIdModel.dirty)">
+        <span *ngIf="userIdModel.errors?.['required']">{{ constants.validation.userIdRequired }}</span>
+        <span *ngIf="userIdModel.errors?.['pattern']">{{ constants.validation.userIdPattern }}</span>
+      </div>
+    </label>
+
+    <div class="form-actions">
+      <button class="button button--ghost" type="button" (click)="close()">{{ constants.actions.cancel }}</button>
+      <button class="button button--primary" type="submit" [disabled]="form.invalid">{{ constants.actions.submit }}</button>
+    </div>
+  </form>
+</div>

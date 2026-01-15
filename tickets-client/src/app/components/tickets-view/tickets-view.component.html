@@ -1,0 +1,40 @@
+<div class="tickets-view">
+
+  <div class="controls">
+      <label class="filter-label">{{ constants.filterLabel }}</label>
+    <select class="filter-select" [(ngModel)]="filter" (ngModelChange)="onFilterChange($event)">
+      <option [value]="constants.filterOptions.all">הכל</option>
+      <option [value]="constants.filterOptions.open">פתוחות</option>
+      <option [value]="constants.filterOptions.closed">סגורות</option>
+    </select>
+  </div>
+    <div class="table-wrap" *ngIf="tickets && tickets.length > 0">
+      <table class="tickets-table">
+        <thead>
+              <tr>
+                <th class="subject">{{ constants.columns.subject }}</th>
+                <th class="status">{{ constants.columns.status }}</th>
+                <th class="description">{{ constants.columns.description }}</th>
+                <th class="actions">{{ constants.columns.actions }}</th>
+              </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of tickets" class="ticket-row">
+            <td class="subject">{{ ticket.subject }}</td>
+              <td class="status">{{ getStatusString(ticket.status) }}</td>
+            <td class="description">{{ ticket.description }}</td>
+            <td class="actions">
+              <button class="btn btn-primary" *ngIf="ticket.status !== TicketStatus.Closed" (click)="closeTicket(ticket.ticketId!)">סגור</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="empty-state card" *ngIf="!tickets || tickets.length === 0">
+      <div class="empty-content">
+        <div class="empty-title">אין פניות כעת</div>
+        <div class="empty-sub">כרגע אין פניות להצגה.</div>
+      </div>
+    </div>
+</div>

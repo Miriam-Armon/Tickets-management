@@ -1,0 +1,135 @@
+// Global application styles (moved from app component)
+$import-mat: false;
+// Angular Material prebuilt theme removed — @angular/material is not installed
+// If you later install @angular/material, restore or update this import.
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+$bg: #f6f8fb;
+$card: #ffffff;
+$primary: #0b5cff;
+$accent: #06b6d4;
+$text: #1f2937;
+$muted: #6b7280;
+$radius: 8px;
+$shadow: 0 6px 18px rgba(16,24,40,0.08);
+
+:root {
+  --bg: #f6f8fb;
+  --card-bg: #ffffff;
+  --accent: #2563eb;
+  --accent-600: #1e40af;
+  --text: #111827;
+  --muted: #6b7280;
+  --radius: 8px;
+  --shadow-sm: 0 6px 18px rgba(16,24,40,0.08);
+  --shadow-lg: 0 12px 40px rgba(2,6,23,0.12);
+}
+
+/* Global reset / base */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Right-to-left layout for Hebrew locale */
+html, body { direction: rtl; }
+
+/* Keep numeric ID input LTR so digits input naturally left-to-right */
+input[name="userId"], input[name="userId"]::placeholder { direction: ltr; text-align: left; }
+input[type="number"], input[type="tel"] { direction: ltr; }
+
+/* Layout utilities */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.app-shell { min-height: 100vh; }
+
+/* Typography */
+h1, h2, h3, h4 { margin: 0; }
+h1 { font-size: 28px; font-weight: 700; color: var(--text); }
+
+/* Global buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: calc(var(--radius));
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  background: transparent;
+  transition: transform .06s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent), var(--accent-600));
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.18);
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(37,99,235,0.12);
+  color: var(--accent);
+}
+
+/* Legacy class names used in templates: keep aliases so HTML does not change */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: calc(var(--radius));
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(180deg, var(--accent), var(--accent-600));
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.18);
+}
+.button--primary { /* primary variant */ }
+.button--ghost {
+  background: transparent;
+  border: 1px solid rgba(37,99,235,0.12);
+  color: var(--accent);
+}
+
+/* Modal overlay (global) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 18px;
+}
+
+/* Small utilities */
+.hidden { display: none !important; }
+.text-muted { color: var(--muted); }
+
+/* Accessible focus */
+:focus { outline: none; }
+:focus-visible { box-shadow: 0 0 0 4px rgba(37,99,235,0.12); border-radius: 8px; }
+
+/* Responsive helper */
+@media (max-width: 880px) {
+  .container { padding: 16px; }
+}

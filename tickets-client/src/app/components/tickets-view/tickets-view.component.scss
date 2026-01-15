@@ -1,0 +1,173 @@
+$card-bg:        #ffffff;
+$muted:          #6b7280;
+$text:           #111827;
+$accent:         #2563eb;
+$shadow:         0 6px 18px rgba(20,20,20,0.06);
+$radius:         8px;
+
+.tickets-view {
+  padding: 16px;
+  color: $text;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.filter-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  background: $card-bg;
+  min-width: 140px;
+}
+
+.table-wrap {
+  overflow: auto;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  background: $card-bg;
+}
+
+.tickets-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px; 
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.tickets-table thead th {
+  text-align: center;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: $muted;
+  border-bottom: 1px solid #eef2f6;
+  font-weight: 700;
+}
+
+.tickets-table thead th.subject { text-align: right; }
+.tickets-table thead th.description { text-align: left; }
+.tickets-table thead th.actions { text-align: center; }
+
+.tickets-table tbody tr.ticket-row {
+  transition: background .12s ease, transform .06s ease;
+}
+
+.tickets-table tbody tr.ticket-row:nth-child(odd) {
+  background: #fbfdff;
+}
+
+.tickets-table tbody tr.ticket-row:hover {
+  background: #f7fbff;
+  transform: translateY(-1px);
+}
+
+.tickets-table tbody td {
+  padding: 14px 18px;
+  vertical-align: middle;
+  color: $text;
+  border-bottom: 1px solid #f3f6f9;
+}
+
+.tickets-table .subject {
+  font-weight: 600;
+  text-align: right;
+}
+
+.tickets-table .status {
+  font-size: 13px;
+  color: $muted;
+  text-align: center;
+}
+
+.tickets-table .description {
+  color: #374151;
+  text-align: left;
+}
+
+.tickets-table .description {
+  color: #374151;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  background: transparent;
+  transition: transform .06s ease, box-shadow .12s ease;
+}
+
+/* primary */
+.btn-primary {
+  background: linear-gradient(180deg, $accent, #1e40af);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.18);
+}
+
+.btn-primary:hover { transform: translateY(-1px); }
+
+/* focus styles - accessible */
+.btn:focus,
+button:focus,
+a:focus {
+  outline: none;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+  border-radius: 8px;
+}
+
+/* actions cell */
+.actions { width: 140px; text-align: center; }
+
+.tickets-table td.actions,
+.tickets-table thead th.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-state {
+  margin-top: 18px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  box-shadow: 0 10px 30px rgba(16,24,40,0.04);
+  color: #374151;
+  text-align: center;
+}
+
+.empty-state .empty-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.empty-state .empty-sub { color: $muted; }
+
+@media (max-width: 880px) {
+  .tickets-table { min-width: 600px; } /* allow smaller tables */
+  .controls { gap: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tickets-table tbody tr.ticket-row,
+  .btn { transition: none !important; }
+}
+}
+

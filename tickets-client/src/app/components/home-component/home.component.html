@@ -1,0 +1,21 @@
+<div class="container app-shell">
+  <header class="header">
+    <h1 class="header__title">{{ constants.title }}</h1>
+  </header>
+
+  <main>
+    <app-tickets-view></app-tickets-view>
+
+    <div class="after-actions">
+      <button class="button button--primary" (click)="openNewTicketForm()">{{ constants.actions.newTicket }}</button>
+    </div>
+  </main>
+
+  <div class="notification" *ngIf="showMessage">{{ message }}</div>
+  <!-- Modal overlay for ticket form -->
+  <div class="modal-overlay" *ngIf="showNewTicketForm" (click)="closeNewTicketForm()">
+      <div class="modal" (click)="$event.stopPropagation()">
+      <app-new-ticket-form (closed)="onNewTicketFormClosed($event)"></app-new-ticket-form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+.ticket-form.card {
+	position: relative;
+	padding: 22px;
+	border-radius: 12px;
+	background: #ffffff;
+	box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+	max-width: 900px;
+}
+
+.ticket-form .close-btn {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	background: transparent;
+	border: 0;
+	width: 36px;
+	height: 36px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.ticket-form .form-title {
+	margin: 6px 0 18px 0;
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.ticket-form .error {
+	color: #b91c1c;
+	background: #fff1f2;
+	padding: 8px 10px;
+	border-radius: 8px;
+	margin-bottom: 12px;
+}
+
+.ticket-form .field { display:block; margin-bottom:12px; }
+.ticket-form .label { display:block; font-size:13px; color:#6b7280; margin-bottom:6px; }
+
+.ticket-form input[type="text"],
+.ticket-form input[type="number"],
+.ticket-form textarea {
+	width: 100%;
+	padding: 12px 14px;
+	border-radius: 10px;
+	border: 1px solid #e6e9ef;
+	background: #fbfdff;
+	font-size: 14px;
+	color: #111827;
+}
+
+.ticket-form textarea { min-height: 140px; resize:vertical; }
+
+.form-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
+
+.button { padding:10px 16px; border-radius:10px; font-weight:700; border:0; cursor:pointer; }
+.button--primary { background: linear-gradient(180deg,#2563eb,#1e40af); color:#fff; box-shadow: 0 8px 20px rgba(37,99,235,0.18); }
+.button--ghost { background:transparent; color:#374151; border:1px solid #e6e9ef; }
+
+@media (max-width:720px) {
+	.ticket-form.card { padding: 16px; }
+	.ticket-form .close-btn { top:8px; left:8px; }
+}
+
+.ticket-form input.ng-invalid.ng-touched,
+.ticket-form textarea.ng-invalid.ng-touched {
+	border-color: #ef4444;
+	box-shadow: 0 0 0 4px rgba(239,68,68,0.05);
+}
+
+.ticket-form .error-text {
+	color: #b91c1c;
+	font-size: 13px;
+	margin-top: 6px;
+}
+
+.button[disabled],
+button[disabled] {
+	opacity: 0.6;
+	cursor: not-allowed;
+	pointer-events: none;
+	box-shadow: none;
+	transform: none;
+}
+
