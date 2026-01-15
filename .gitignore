@@ -1,13 +1,17 @@
-# Angular / Node
-client/node_modules/
-client/dist/
-client/.env
+# .NET
+TicketsManagement.Api/bin/
+TicketsManagement.Api/obj/
+TicketsManagement.Api/*.user
+TicketsManagement.Api/.vs/
 
-# .NET Server
-server/bin/
-server/obj/
-server/*.user
-server/*.vs
+# JSON secrets
+TicketsManagement.Api/appsettings*.json
 
+# Node / Angular
+tickets-client/node_modules/
+tickets-client/dist/
+tickets-client/.env
+
+# General
 *.log
 *.tmp
